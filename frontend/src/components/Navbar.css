@@ -38,3 +38,8 @@
 .navbar-links a:hover {
   text-decoration: underline;
 }
+.navbar {
+  /* Existing styles */
+  position: relative; /* Must be relative, absolute, fixed, or sticky */
+  z-index: 100;       /* Keep this number low */
+}
