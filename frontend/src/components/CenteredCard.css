@@ -1,0 +1,88 @@
+.centered-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #eef1fd 0%, #f4f5f7 50%, #ede9fe 100%);
+  padding: 84px 24px 24px 24px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.centered-page::before,
+.centered-page::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.centered-page::before {
+  width: 320px;
+  height: 320px;
+  background: #4f7cff;
+  top: -80px;
+  left: -80px;
+}
+
+.centered-page::after {
+  width: 360px;
+  height: 360px;
+  background: #7c3aed;
+  bottom: -100px;
+  right: -100px;
+}
+
+.centered-card {
+  position: relative;
+  z-index: 1;
+}
+.centered-card {
+  width: 100%;
+  max-width: 360px;
+  padding: 28px 24px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  border: 3px solid transparent;
+  background-image: linear-gradient(#ffffff, #ffffff),
+    linear-gradient(160deg, #4f7cff, #7c3aed);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.12);
+}
+
+.centered-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.centered-logo-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.centered-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  color: #1a1a2e;
+}
+
+.centered-title span {
+  color: #4f46e5;
+}
+
+.centered-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #6b6f85;
+  margin-bottom: 28px;
+}

@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f4f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-card {
+  text-align: center;
+}
+
+.dashboard-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f7cff, #a855f7);
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+}
+
+.dashboard-email {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+.dashboard-email strong {
+  color: #1a1a1a;
+}
