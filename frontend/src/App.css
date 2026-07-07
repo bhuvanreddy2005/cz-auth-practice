@@ -186,4 +186,9 @@
   position: relative; /* Must be relative, absolute, fixed, or sticky */
   z-index: 100;       /* Keep this number low */
 }
+/* If targeting the container class directly */
+.Toastify__toast-container {
+    z-index: 9999; /* Higher than your navbar or modals */
+    position: fixed;
+}
 }
