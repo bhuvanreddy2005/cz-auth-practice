@@ -69,7 +69,7 @@ function Signup() {
     try {
       await api.post("/mfa/enable", { code });
       setToast({ message: "Account created and secured", type: "success" });
-      setTimeout(() => navigate("/profile"), 1000);
+      setTimeout(() => navigate("/login"), 1000);
     } catch (err) {
       setToast({ message: err.response?.data?.detail || "Invalid code", type: "error" });
       setOtp(["", "", "", "", "", ""]);
