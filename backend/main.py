@@ -1,7 +1,7 @@
 # main.py
 from fastapi import FastAPI
 from routes.auth import router as auth_router # Example import
-
+from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 # IMPORTANT: Check if you have a prefix here!
