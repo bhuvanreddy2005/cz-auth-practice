@@ -1,31 +1,18 @@
-import os
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from database import Base, engine
-from models.user import User
-from routes import auth, protected, mfa, profile
-
-Base.metadata.create_all(bind=engine)
-
 app = FastAPI()
 
-allowed_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173").split(",")
+# Add both your local development URL and your Vercel production URL
+origins = [
+    "http://localhost:5173",
+    "https://cz-auth-practice.vercel.app"
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allowed_origins,
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # Allows all methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allows all headers
 )
-
-app.include_router(auth.router)
-app.include_router(protected.router)
-app.include_router(mfa.router)
-app.include_router(profile.router)
-
-@app.get("/")
-def root():
-    return {"message": "API is running"}
