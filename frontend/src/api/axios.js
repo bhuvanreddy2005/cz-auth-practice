@@ -3,7 +3,7 @@ import { getToken } from "../utils/auth";
 
 // Reads VITE_API_URL from frontend/.env (Vite only exposes vars prefixed
 // with VITE_). Falls back to the local FastAPI dev server if not set.
-const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const baseURL = import.meta.env.VITE_API_URL || "https://cz-auth-backend.onrender.com";
 
 const api = axios.create({
   baseURL,
