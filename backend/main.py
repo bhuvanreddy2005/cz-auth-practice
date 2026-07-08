@@ -1,8 +1,11 @@
+# main.py
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+from routes.auth import router as auth_router # Example import
 
 app = FastAPI()
 
+# IMPORTANT: Check if you have a prefix here!
+app.include_router(auth_router, prefix="/auth")
 # Add both your local development URL and your Vercel production URL
 origins = [
     "http://localhost:5173",
