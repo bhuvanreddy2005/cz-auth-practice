@@ -14,7 +14,7 @@ Base.metadata.create_all(bind=engine)
 # Read allowed origins from the environment. Supports a comma-separated list,
 # e.g. ALLOWED_ORIGINS=http://localhost:5173,https://your-frontend.com
 # Falls back to the local Vite dev server if nothing is set.
-_raw_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173")
+_raw_origins = os.getenv("ALLOWED_ORIGINS", "https://https://cz-auth-practice.vercel.app/")
 allowed_origins = [origin.strip() for origin in _raw_origins.split(",") if origin.strip()]
 
 app.add_middleware(
