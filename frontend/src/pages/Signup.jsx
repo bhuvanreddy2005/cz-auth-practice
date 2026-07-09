@@ -40,14 +40,21 @@ function Signup() {
       setToast({ message: "Password does not meet requirements", type: "error" });
       return;
     }
+   let signupSucceeded = false;
     try {
       const signupResponse = await api.post("/auth/signup", { name, email, password });
       saveToken(signupResponse.data.access_token);
+      signupSucceeded = true;
+
       const setupResponse = await api.get("/mfa/setup");
       setQrCode(setupResponse.data.qr_code);
       setStep("mfa");
     } catch (err) {
-      setToast({ message: err.response?.data?.detail || "Signup failed", type: "error" });
+      if (signupSucceeded) {
+        setToast({ message: "Account created, but MFA setup timed out. Please refresh and log in to try again.", type: "error" });
+      } else {
+        setToast({ message: err.response?.data?.detail || "Signup failed", type: "error" });
+      }
     }
   };
 

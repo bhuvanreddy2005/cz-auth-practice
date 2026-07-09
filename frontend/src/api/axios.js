@@ -6,6 +6,7 @@ const baseURL = import.meta.env.VITE_API_URL || "https://cz-auth-backend.onrende
 
 const api = axios.create({
   baseURL,
+  timeout: 60000,
 });
 
 api.interceptors.request.use((config) => {
