@@ -1,4 +1,4 @@
-﻿import { useState, useRef } from "react";
+﻿import { useState, useRef, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../api/axios";
 import { saveToken } from "../utils/auth";
@@ -18,11 +18,14 @@ function Signup() {
   const [qrCode, setQrCode] = useState("");
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [toast, setToast] = useState({ message: "", type: "" });
-  const navigate = useNavigate();
+const navigate = useNavigate();
   const otpRefs = useRef([]);
 
-  const closeToast = () => setToast({ message: "", type: "" });
+  useEffect(() => {
+    api.get("/").catch(() => {});
+  }, []);
 
+  const closeToast = () => setToast({ message: "", type: "" });
   const checks = {
     length: password.length >= 8,
     uppercase: /[A-Z]/.test(password),
